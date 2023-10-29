@@ -27,12 +27,7 @@ This dataset comprised of data for three different sectors with the AMI meters i
 The weather dataset includes daily weather information such as precipitation, snowfall, temperature, wind speed, and wind direction over the total length of time for the collected meter data.
 
 
-Attribute image  
-
-![alt text](./images/.png)  
-
-
-
+![alt text](./images/attributes.png)  
 
 ## Preprocessing
 
@@ -54,24 +49,24 @@ Columns containing insignificant data such as SNOW, SNWD, WT02, WT04, WT06 and W
 
 Water usage pie image
 
-![alt text](./images/.png)  
+![alt text](./images/water_usage.png)  
 
 
 barchart image
 
-![alt text](./images/.png)  
+![alt text](./images/water_usage_categories.png)  
 
 
 water usage trend
 
-![alt text](./images/.png)  
+![alt text](./images/water_usage_trend.png)  
 
 
 From the above plots we can see that there is high variability in water consumption. This effect is more in Industrial category.
 
 Weather image
 
-![alt text](./images/.png)  
+![alt text](./images/weather.png)  
 
 
 
@@ -93,13 +88,13 @@ Hyperparameters considered : n_estimators, max_features, max_depth, min_samples_
 Regression Results image
 
 
-![alt text](./images/.png)  
+![alt text](./images/regression_results.png)  
 
 
 
 Top 5 features
 
-![alt text](./images/.png)  
+![alt text](./images/top5_features.png)  
 
 
 
@@ -114,17 +109,17 @@ Pycaret produced the best model and from which predictions were made.
 
 Forecasting image 1
 
-![alt text](./images/.png)  
+![alt text](./images/industrial_forecast.png)  
 
 
 Forecasting image 2
 
-![alt text](./images/.png)  
+![alt text](./images/residential_forecast.png)  
 
 
 Forecasting image 3
 
-![alt text](./images/.png)  
+![alt text](./images/commercial_forecast.png)  
 
 
 
