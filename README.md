@@ -88,8 +88,8 @@ From the above plots we can see that there is high variability in water consumpt
 - Performed univariate time series forecasting on READ_VALUE at Meter-level rather than at combined Sector-level.
 - Exogenous features used for modeling : AWND, PRCP, TAVG, TMAX, TMIN, WDF2, WDF5, WSF2, WSF5, WT01, WT03, WT08.
 - Initially worked on ARMA, ARIMA, ARX, SARIMA, SARIMAX models  where we selected model parameters based on Auto Correlation and Partial Auto Correlation plots.
-- Pycaret - Open source which automates many machine learning workflows was used.
-- This provided with many models to choose from and then the performance of the various models is compared using the cross validation results.
+- Pycaret - Open source which automates many machine learning workflows was used later.
+- This provided with many models to choose from and then the performance of the various models based on the last week as a test set is compared using the cross validation results.
 - Pycaret produced the best model and from which predictions were made.
 
 
