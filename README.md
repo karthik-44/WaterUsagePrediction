@@ -33,38 +33,31 @@ The weather dataset includes daily weather information such as precipitation, sn
 
 
 ### Meter:
-Resampled data from Hourly to Daily
-Checked for any missing values in all datasets.
-Ensured unique values for "METER_ID", "LOCATION_NO",  "CENSUS_TRACT", "CENSUS_BLOCK_GROUP", "LAND_SQFT", "VAL_MARKET" columns.
-Normalized data through Min-Max scaling and One-Hot encoding for the categorical variables
+- Resampled data from Hourly to Daily
+- Checked for any missing values in all datasets.
+- Ensured unique values for "METER_ID", "LOCATION_NO",  "CENSUS_TRACT", "CENSUS_BLOCK_GROUP", "LAND_SQFT", "VAL_MARKET" columns.
+- Normalized data through Min-Max scaling and One-Hot encoding for the categorical variables
 
 ### Weather:
-Imputed missing entries by 0.
-Columns containing insignificant data such as SNOW, SNWD, WT02, WT04, WT06 and WT09 were removed because they had few observations and were not relevant.
+- Imputed missing entries by 0.
+- Columns containing insignificant data such as SNOW, SNWD, WT02, WT04, WT06 and WT09 were removed because they had few observations and were not relevant.
 
 
 
 ## Exploratory Data Analysis
 
 
-Water usage pie image
-
 ![alt text](./images/water_usage.png)  
 
 
-barchart image
-
 ![alt text](./images/water_usage_categories.png)  
 
-
-water usage trend
 
 ![alt text](./images/water_usage_trend.png)  
 
 
 From the above plots we can see that there is high variability in water consumption. This effect is more in Industrial category.
 
-Weather image
 
 ![alt text](./images/weather.png)  
 
@@ -72,27 +65,19 @@ Weather image
 
 ## Regression
 
-Linear 
-Lasso 
-Ridge
-ElasticNet
-Random Forest Regressor
+- Attributes from both the Meter and Weather data were considered.
+- Removed the temporal component (DATE) for the Regression Analysis and split the dataset for training and testing.
+- Initially implemented Linear Regression along with the penalized variations(Linear, Lasso, Ridge, ElasticNet) and found the statistically significant variables.
+- Random Forest Regression with default settings gave a slight improvement in the performance.
+- Tuned hyperparameter of the Random Forest model with 5-fold cross validation by using RandomizedSearchCV, GridSearchCV.
+- **Hyperparameters considered** : n_estimators, max_features, max_depth, min_samples_split, min_samples_leaf, bootstrap.
 
-Attributes from both the Meter and Weather data were considered.
-Removed the temporal component (DATE) for the Regression Analysis and split the dataset for training and testing.
-Initially implemented Linear Regression along with the penalized variations and found the statistically significant variables.
-Random Forest Regression with default settings gave a slight improvement in the performance.
-Tuned hyperparameter of the Random Forest model with 5-fold cross validation by using RandomizedSearchCV, GridSearchCV.
-Hyperparameters considered : n_estimators, max_features, max_depth, min_samples_split, min_samples_leaf, bootstrap.
-
-Regression Results image
+### Results
 
 
 ![alt text](./images/regression_results.png)  
 
 
-
-Top 5 features
 
 ![alt text](./images/top5_features.png)  
 
@@ -100,36 +85,31 @@ Top 5 features
 
 ## Forecasting
 
-Performed univariate time series forecasting on READ_VALUE at Meter-level rather than at combined Sector-level.
-Exogenous features used for modeling : AWND, PRCP, TAVG, TMAX, TMIN, WDF2, WDF5, WSF2, WSF5, WT01, WT03, WT08.
-Initially worked on ARMA, ARIMA, ARX, SARIMA, SARIMAX models  where we selected model parameters based on Auto Correlation and Partial Auto Correlation plots.
-Pycaret - Open source which automates many machine learning workflows was used.
-This provided with many models to choose from and then the performance of the various models is compared using the cross validation results.
-Pycaret produced the best model and from which predictions were made.
+- Performed univariate time series forecasting on READ_VALUE at Meter-level rather than at combined Sector-level.
+- Exogenous features used for modeling : AWND, PRCP, TAVG, TMAX, TMIN, WDF2, WDF5, WSF2, WSF5, WT01, WT03, WT08.
+- Initially worked on ARMA, ARIMA, ARX, SARIMA, SARIMAX models  where we selected model parameters based on Auto Correlation and Partial Auto Correlation plots.
+- Pycaret - Open source which automates many machine learning workflows was used.
+- This provided with many models to choose from and then the performance of the various models is compared using the cross validation results.
+- Pycaret produced the best model and from which predictions were made.
 
-Forecasting image 1
 
 ![alt text](./images/industrial_forecast.png)  
 
 
-Forecasting image 2
-
 ![alt text](./images/residential_forecast.png)  
 
-
-Forecasting image 3
 
 ![alt text](./images/commercial_forecast.png)  
 
 
 
 ## Conclusion
-Worked on Regression, Forecasting tasks and achieved decent developed models.
-For regression random forest models were chosen because of better performance, interpretability and their ability to capture nonlinear interactions.
-Feature Importance plot suggested there is an effect of exogenous factors on the water usage.
-Pycaret was used for forecasting and Extra Trees Regressor, Gradient Boost Regressor, ARIMA models turned out to be the best models.
-Extra Trees uses random split, doesn't use bootstrapping where as Random Forest chooses the optimum split and uses bootstrapping.
-In terms of computational cost, and therefore execution time, the Extra Trees algorithm is faster.
+- Worked on Regression, Forecasting tasks and achieved decent developed models.
+- For regression random forest models were chosen because of better performance, interpretability and their ability to capture nonlinear interactions.
+- Feature Importance plot suggested there is an effect of exogenous factors on the water usage.
+- Pycaret was used for forecasting and Extra Trees Regressor, Gradient Boost Regressor, ARIMA models turned out to be the best models.
+- Extra Trees uses random split, doesn't use bootstrapping where as Random Forest chooses the optimum split and uses bootstrapping.
+- In terms of computational cost, and therefore execution time, the Extra Trees algorithm is faster.
 
 
 I would like to thank Aisha and Ved who have worked with me for this project.
