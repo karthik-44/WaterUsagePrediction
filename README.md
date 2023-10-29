@@ -10,8 +10,8 @@ This enables effective management of operations and planning and preparation of 
 
 ## Objectives
 
-1) Regression: Examining the impact of variables such as weather, property value, consumer type, and time of use on water consumption.
-2) Prediction: Forecasting how water usage will change in the future, such as one week from now.
+1) **Regression**: Examining the impact of variables such as weather, property value, consumer type, and time of use on water consumption.
+2) **Prediction**: Forecasting how water usage will change in the future, such as one week from now.
 
 To answer these questions, we were provided with water usage data and weather data from various sectors.
 
